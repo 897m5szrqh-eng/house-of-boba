@@ -10,8 +10,8 @@ const TILES = [
   },
   {
     type: "video",
-    webm: "/matcha.webm",
-    mp4: "/matcha.mp4",
+    webm: `${process.env.PUBLIC_URL}/matcha.webm`,
+    mp4: `${process.env.PUBLIC_URL}/matcha.mp4`,
     alt: "Matcha drink in motion",
     span: "md:col-span-4 aspect-[4/5] md:h-[310px]",
     label: "Matcha",
