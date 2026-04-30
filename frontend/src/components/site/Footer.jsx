@@ -40,6 +40,12 @@ export default function Footer() {
           </div>
 
           <div className="md:col-span-3">
+            <img
+              src="/haus-logo.jpeg"
+              alt="Haus of Boba logo"
+              data-testid="footer-logo"
+              className="h-16 w-16 rounded-full object-cover ring-1 ring-[#FDFBF7]/20 mb-5"
+            />
             <p className="text-[10px] uppercase tracking-[0.4em] text-[#FDFBF7]/60 mb-4">
               Visit
             </p>
@@ -111,8 +117,8 @@ export default function Footer() {
 
         <div
           aria-hidden
-          className="font-display font-black text-[#FDFBF7] tracking-tighter leading-none my-12 md:my-20 select-none"
-          style={{ fontSize: "clamp(80px, 22vw, 360px)" }}
+          className="font-display font-black text-[#FDFBF7] tracking-tighter leading-none my-12 md:my-20 select-none text-center"
+          style={{ fontSize: "clamp(64px, 18vw, 300px)" }}
         >
           haus<span className="italic font-extralight text-[#FDFBF7]/60">of</span>boba.
         </div>

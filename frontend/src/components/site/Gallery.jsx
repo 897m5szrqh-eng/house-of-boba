@@ -2,18 +2,22 @@ import { motion } from "framer-motion";
 
 const TILES = [
   {
-    url: "https://customer-assets.emergentagent.com/job_6467ead7-ac44-480f-8c74-75fabde5c22a/artifacts/4627ez0j_IMG_9534.jpeg",
-    alt: "Boba drinks lineup",
+    type: "image",
+    url: "https://customer-assets.emergentagent.com/job_sachse-boba-shop/artifacts/egrru0f7_IMG_9543.jpeg",
+    alt: "Boba drinks lineup in front of haus of boba neon sign",
     span: "md:col-span-8 md:row-span-2 aspect-[16/10] md:aspect-auto md:h-[640px]",
     label: "Drinks",
   },
   {
-    url: "https://customer-assets.emergentagent.com/job_6467ead7-ac44-480f-8c74-75fabde5c22a/artifacts/r7e8dvqx_IMG_9535.jpeg",
-    alt: "Matcha and storefront",
+    type: "video",
+    webm: "/matcha.webm",
+    mp4: "/matcha.mp4",
+    alt: "Matcha drink in motion",
     span: "md:col-span-4 aspect-[4/5] md:h-[310px]",
     label: "Matcha",
   },
   {
+    type: "image",
     url: "https://customer-assets.emergentagent.com/job_6467ead7-ac44-480f-8c74-75fabde5c22a/artifacts/sg12knwz_IMG_9532.jpeg",
     alt: "Cafe seating with neon",
     span: "md:col-span-4 aspect-[4/5] md:h-[310px]",
@@ -63,11 +67,25 @@ export default function Gallery() {
               data-testid={`gallery-tile-${i}`}
               className={`group relative overflow-hidden rounded-2xl col-span-2 ${t.span}`}
             >
-              <img
-                src={t.url}
-                alt={t.alt}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
-              />
+              {t.type === "video" ? (
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  aria-label={t.alt}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105 bg-[#1A3627]"
+                >
+                  <source src={t.webm} type="video/webm" />
+                  <source src={t.mp4} type="video/mp4" />
+                </video>
+              ) : (
+                <img
+                  src={t.url}
+                  alt={t.alt}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-[#1A3627]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="absolute bottom-4 left-4 bg-[#FDFBF7]/90 backdrop-blur px-3 py-1.5 rounded-full text-[10px] uppercase tracking-[0.25em] text-[#1A3627]">
                 {t.label}
