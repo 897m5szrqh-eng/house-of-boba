@@ -6,9 +6,9 @@ export default function Cursor() {
   const [hover, setHover] = useState(false);
   const x = useMotionValue(-100);
   const y = useMotionValue(-100);
-  const sx = useSpring(x, { stiffness: 500, damping: 40, mass: 0.5 });
-  const sy = useSpring(y, { stiffness: 500, damping: 40, mass: 0.5 });
-
+  const sx = useSpring(x, { stiffness: 1000, damping: 50, mass: 0.2 });
+  const sy = useSpring(y, { stiffness: 1000, damping: 50, mass: 0.2 });
+  
   useEffect(() => {
     const onMove = (e) => {
       x.set(e.clientX);
