@@ -1,53 +1,61 @@
 import { useEffect } from "react";
 import "@/App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import Lenis from "lenis";
+import Nav from "@/components/site/Nav";
+import Hero from "@/components/site/Hero";
+import About from "@/components/site/About";
+import Marquee from "@/components/site/Marquee";
+import Menu from "@/components/site/Menu";
+import Gallery from "@/components/site/Gallery";
+import Reviews from "@/components/site/Reviews";
+import Location from "@/components/site/Location";
+import Footer from "@/components/site/Footer";
+import Cursor from "@/components/site/Cursor";
+import Loader from "@/components/site/Loader";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
+function HomePage() {
   useEffect(() => {
-    helloWorldApi();
+    const lenis = new Lenis({
+      duration: 1.25,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    const id = requestAnimationFrame(raf);
+    return () => {
+      cancelAnimationFrame(id);
+      lenis.destroy();
+    };
   }, []);
 
   return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
+    <div className="App custom-cursor-on" data-testid="home-page">
+      <Loader />
+      <Cursor />
+      <Nav />
+      <Hero />
+      <Marquee />
+      <About />
+      <Menu />
+      <Gallery />
+      <Reviews />
+      <Location />
+      <Footer />
     </div>
   );
-};
+}
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
