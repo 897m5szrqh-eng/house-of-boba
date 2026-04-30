@@ -35,7 +35,7 @@ export default function Nav() {
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 h-[72px] md:h-[84px] flex items-center justify-between">
         <a href="#top" data-testid="nav-logo" className="flex items-center gap-3">
           <img
-            src="/haus-logo.jpeg"
+            src={`${process.env.PUBLIC_URL}/haus-logo.jpeg`}
             alt="Haus of Boba logo"
             className="h-9 w-9 md:h-10 md:w-10 rounded-full object-cover ring-1 ring-[#1A3627]/15"
           />
