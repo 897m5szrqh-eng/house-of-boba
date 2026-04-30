@@ -11,7 +11,6 @@ import Gallery from "@/components/site/Gallery";
 import Reviews from "@/components/site/Reviews";
 import Location from "@/components/site/Location";
 import Footer from "@/components/site/Footer";
-import Cursor from "@/components/site/Cursor";
 import Loader from "@/components/site/Loader";
 
 function HomePage() {
@@ -33,9 +32,8 @@ function HomePage() {
   }, []);
 
   return (
-    <div className="App custom-cursor-on" data-testid="home-page">
+    <div className="App" data-testid="home-page">
       <Loader />
-      <Cursor />
       <Nav />
       <Hero />
       <Marquee />
