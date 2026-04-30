@@ -95,7 +95,7 @@ export default function Location() {
 
             <div className="flex flex-wrap gap-3">
               <a
-                href="https://hausofboba.net"
+                href="https://pos.chowbus.com/online-ordering/store/Koala-Tea/14544?referrer=google_food_ordering"
                 target="_blank"
                 rel="noreferrer"
                 data-testid="order-pickup-btn"
@@ -105,7 +105,7 @@ export default function Location() {
                 Order Pickup <ExternalLink className="w-3.5 h-3.5" />
               </a>
               <a
-                href="https://hausofboba.net"
+                href="https://pos.chowbus.com/online-ordering/store/Koala-Tea/14544?referrer=google_food_ordering&service_type=delivery"
                 target="_blank"
                 rel="noreferrer"
                 data-testid="order-delivery-btn"
