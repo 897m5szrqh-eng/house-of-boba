@@ -18,14 +18,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-
+      
       - name: Install dependencies
-        working-directory: ./frontend
-        run: npm install
+        run: |
+          cd frontend
+          npm install --legacy-peer-deps
 
       - name: Build
         working-directory: ./frontend
