@@ -2,8 +2,8 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
-const VIDEO_MP4 = "/boba-hero.mp4";
-const VIDEO_WEBM = "/boba-hero.webm";
+const VIDEO_MP4 = `${process.env.PUBLIC_URL}/boba-hero.mp4`;
+const VIDEO_WEBM = `${process.env.PUBLIC_URL}/boba-hero.webm`;
 
 export default function Hero() {
   const ref = useRef(null);
