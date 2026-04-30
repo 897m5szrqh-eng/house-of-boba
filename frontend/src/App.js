@@ -51,7 +51,7 @@ function HomePage() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/house-of-boba">     
       <Routes>
         <Route path="/" element={<HomePage />} />
       </Routes>
