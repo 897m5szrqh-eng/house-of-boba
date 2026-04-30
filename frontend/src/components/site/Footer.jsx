@@ -41,7 +41,7 @@ export default function Footer() {
 
           <div className="md:col-span-3">
             <img
-              src="/haus-logo.jpeg"
+              src={`${process.env.PUBLIC_URL}/haus-logo.jpeg`}
               alt="Haus of Boba logo"
               data-testid="footer-logo"
               className="h-16 w-16 rounded-full object-cover ring-1 ring-[#FDFBF7]/20 mb-5"
